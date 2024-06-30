@@ -1,27 +1,43 @@
-# Getting Started
+# Projeto Back-end CRUD de Filmes com Spring Boot
 
-### Reference Documentation
-For further reference, please consider the following sections:
+Este é o projeto back-end para um sistema CRUD de filmes, desenvolvido utilizando o framework Spring Boot. O projeto segue a arquitetura MVC (Model-View-Controller) e está integrado com um banco de dados PostgreSQL. Ele também inclui funcionalidades para criar registros no banco através de APIs externas e está configurado para servir como backend para um front-end em Next.js, React.js e PrimeReact.js.
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.3.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.3.1/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.3.1/reference/htmlsingle/index.html#web)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.3.1/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.3.1/reference/htmlsingle/index.html#using.devtools)
+## Tecnologias Utilizadas
 
-### Guides
-The following guides illustrate how to use some features concretely:
+- Java
+- Spring Boot
+- PostgreSQL
+- RESTful APIs
+- Maven (para gerenciamento de dependências)
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
+## Estrutura do Projeto
 
-### Maven Parent overrides
+O projeto está estruturado da seguinte maneira:
 
-Due to Maven's design, elements are inherited from the parent POM to the project POM.
-While most of the inheritance is fine, it also inherits unwanted elements like `<license>` and `<developers>` from the parent.
-To prevent this, the project POM contains empty overrides for these elements.
-If you manually switch to a different parent and actually want the inheritance, you need to remove those overrides.
+![image](https://github.com/casertaPaulo/crud-movies/assets/126000902/dad019d8-f313-4b3e-8181-601b05e20e09)
+
+
+## Configuração e Execução
+
+1. **Configuração do Banco de Dados:**
+   - Certifique-se de ter um servidor PostgreSQL em execução.
+   - Configure as credenciais do banco de dados no arquivo `application.properties` dentro de `src/main/resources`.
+
+2. **Execução do Projeto:**
+   - Importe o projeto em sua IDE preferida como um projeto Maven.
+   - Execute a classe `MoviesApplication.java` para iniciar o servidor Spring Boot.
+
+3. **Endpoints Disponíveis:**
+   - O projeto define endpoints RESTful para realizar operações CRUD (Create, Read, Update, Delete) em filmes. Exemplos de endpoints podem incluir `/movie` para listar todos os filmes, `/movie/{title}` para criar um filme no banco de dados através de uma requisição API (OMDB), entre outros.
+
+## Integração com Front-end
+
+Este projeto back-end está integrado a um projeto front-end em Next.js, React.js e PrimeReact.js
+
+## Contribuição
+
+Contribuições são bem-vindas! Se deseja melhorar este projeto, sinta-se à vontade para criar um fork e enviar um pull request. Para problemas ou sugestões, por favor, abra uma issue.
+
+
+
 
