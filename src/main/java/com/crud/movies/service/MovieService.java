@@ -18,40 +18,24 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private OmdbService apiService;
+
     public List<MovieDTO> listAllMovies() {
         List<MovieEntity> movies = movieRepository.findAll();
         return movies.stream().map(MovieDTO::new).toList();
     }
 
-    public ResponseEntity<String> addMovie(MovieDTO movieDTO) {
-        MovieEntity movieEntity = new MovieEntity(movieDTO);
-        movieRepository.save(movieEntity);
-        return ResponseEntity.ok("Movie created in the database");
+    public MovieDTO addMovie(String title) {
+        MovieDTO movieDTO = apiService.getMovie(title);
+        movieRepository.save(new MovieEntity(movieDTO));
+        return movieDTO;
     }
 
-    //
-    public ResponseEntity<String> addMovieFromApi(String title) {
-        try {
-        RestTemplate restTemplate = new RestTemplate();
-            MovieDTO movieDTO = restTemplate.getForObject("https://omdbapi.com/?apikey=269dedd8&t="+title.replace(" ", "+"), MovieDTO.class);
-            MovieEntity movieEntity = new MovieEntity(movieDTO);
-            movieRepository.save(movieEntity);
-            return ResponseEntity.ok("Request ok, movie created");
-        } catch (Exception e) {
-            return ResponseEntity.ok("Error \n" + e.getMessage());
-        }
-    }
-
-    public ResponseEntity<String> updateMovie(MovieDTO movieDTO) {
-        MovieEntity movieEntity = new MovieEntity(movieDTO);
-        movieRepository.save(movieEntity);
-        return ResponseEntity.ok("Movie updated");
-    }
-
-    public ResponseEntity<String> deleteMovie(Long id) {
+    public MovieDTO deleteMovie(Long id) {
         MovieEntity movieEntity = movieRepository.getReferenceById(id);
         movieRepository.delete(movieEntity);
-        return ResponseEntity.ok("Movie deleted");
+        return new MovieDTO(movieEntity);
     }
 
 }
