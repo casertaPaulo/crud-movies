@@ -32,7 +32,7 @@ O projeto está estruturado da seguinte maneira:
 
 ## Integração com Front-end
 
-Este projeto back-end está integrado a um projeto front-end em Next.js, React.js e PrimeReact.js
+Este projeto back-end está integrado a um projeto front-end em Flutter
 
 ## Contribuição
 
